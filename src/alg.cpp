@@ -33,24 +33,22 @@ int countPairs2(int *arr, int len, int value) {
   return k;
 }
 int countPairs3(int *arr, int len, int value) {
-  int k = 0;
-  for (int i = 0; i < len; ++i) {
-    int complement = value - arr[i];
-    int left = i + 1;
-    int right = len - 1;
-    while (left <= right) {
-      int mid = left + (right - left) / 2;
-      if (arr[mid] == complement) {
-        k++;
-        break;
-      }
-      else if (arr[mid] < complement) {
-        left = mid + 1;
-      }
-      else {
-        right = mid - 1;
-      }
+int k = 0;
+for (int i = 0; i < len; ++i) {
+  int complement = value - arr[i];
+  int left = i + 1;
+  int right = len - 1;
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (arr[mid] == complement) {
+      k++;
+      break;
+    } else if (arr[mid] < complement) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
     }
   }
-  return k;
+}
+return k;
 }
